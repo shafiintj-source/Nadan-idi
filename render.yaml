@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: naadan-adi-rooms
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    autoDeployTrigger: 'off'
