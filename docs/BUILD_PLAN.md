@@ -3,20 +3,21 @@
 ## Phase 0 — Foundation
 - [x] Create isolated fresh-development branch.
 - [x] Record 3D / English-default / Malayalam-option decisions.
-- [ ] Open and validate the project in Godot 4.x.
+- [ ] Open and validate the project in Godot 4.x (Godot executable is not available in this workspace).
 - [ ] Pin exact Godot version and Android export template version.
 
 ## Phase 1 — Playable offline prototype
-- [ ] Third-person character movement, gravity and jump.
-- [ ] Camera follow, mouse look for editor testing.
-- [ ] Greybox arena with floor, walls, collision and spawn point.
-- [ ] Basic target dummy and one hitscan test weapon.
-- [ ] Health and ammunition HUD.
+- [x] Add preliminary third-person CharacterBody3D movement, gravity and jump source.
+- [x] Add follow camera, mouse look and touch-drag camera source.
+- [x] Add greybox arena floor, collision, player spawn and primitive Kerala-inspired dressing.
+- [x] Add damageable target dummy and prototype hitscan test weapon source.
+- [x] Add prototype health/ammunition display, magazine and reload timing source.
+- [ ] Run and validate all scenes/scripts in Godot 4.x.
 
 ## Phase 2 — Android controls
-- [ ] Left virtual movement stick.
-- [ ] Right-side camera drag / aim region.
-- [ ] Fire, jump, reload and optional sprint buttons.
+- [x] Add source for left virtual movement stick.
+- [x] Add source for right-side camera drag / aim region.
+- [x] Add source for fire, jump and reload buttons (sprint not yet implemented).
 - [ ] Simultaneous movement + camera + fire + jump.
 - [ ] Sensitivity, dead-zone and control layout settings.
 - [ ] Test on at least one real Android phone; tune for low/mid-range devices.
