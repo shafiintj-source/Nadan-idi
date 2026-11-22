@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 ## Lightweight touch HUD for Android prototype.
 ## Left thumb moves; right thumb drags camera; action buttons are on the right.
 
