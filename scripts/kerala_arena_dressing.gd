@@ -4,7 +4,8 @@ extends Node3D
 
 func _ready() -> void:
 	_make_box(Vector3(-7.0, 1.0, -3.0), Vector3(4.0, 2.0, 3.0), Color(0.58, 0.36, 0.22))
-	_make_box(Vector3(-7.0, 2.25, -3.0), Vector3(4.5, 0.5, 3.5), Color(0.35, 0.16, 0.12)).rotation.z = deg_to_rad(-8.0)
+	var tiled_roof := _make_box(Vector3(-7.0, 2.25, -3.0), Vector3(4.5, 0.5, 3.5), Color(0.35, 0.16, 0.12))
+	tiled_roof.rotation.z = deg_to_rad(-8.0)
 	_make_box(Vector3(7.0, 1.0, -6.0), Vector3(4.0, 2.0, 3.5), Color(0.66, 0.54, 0.36))
 	_make_box(Vector3(0.0, 0.55, -11.0), Vector3(3.5, 1.1, 1.2), Color(0.25, 0.32, 0.28))
 	_make_box(Vector3(-3.5, 0.55, 2.0), Vector3(1.8, 1.1, 1.8), Color(0.38, 0.27, 0.18))
