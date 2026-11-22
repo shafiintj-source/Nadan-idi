@@ -9,7 +9,7 @@ run/main_scene="res://scenes/prototype_arena.tscn"
 [display]
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/handheld/orientation=1
+window/handheld/orientation=0
 
 [rendering]
 renderer/rendering_method="mobile"
