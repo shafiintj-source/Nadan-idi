@@ -14,6 +14,10 @@ extends CharacterBody3D
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var health: int
 var _fire_cooldown := 0.0
+var magazine_size: int = 12
+var ammo: int = 12
+var reserve_ammo: int = 48
+var _reload_timer: float = 0.0
 var _mobile_controls: Node
 var _camera_pivot: Node3D
 var _camera: Camera3D
@@ -44,6 +48,13 @@ func _physics_process(delta: float) -> void:
 	if _mobile_controls == null:
 		_mobile_controls = get_tree().get_first_node_in_group("mobile_controls")
 	_fire_cooldown = maxf(0.0, _fire_cooldown - delta)
+	if _reload_timer > 0.0:
+		_reload_timer = maxf(0.0, _reload_timer - delta)
+		if _reload_timer == 0.0:
+			var needed := magazine_size - ammo
+			var loaded := mini(needed, reserve_ammo)
+			ammo += loaded
+			reserve_ammo -= loaded
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
@@ -58,13 +69,15 @@ func _physics_process(delta: float) -> void:
 		touch_fire = _mobile_controls.is_fire_held()
 		touch_jump = _mobile_controls.consume_jump()
 		if _mobile_controls.consume_reload():
-			print("Reload requested — weapon system milestone pending")
+			_start_reload()
 	else:
 		move_input.x = float(Input.is_key_pressed(KEY_D)) - float(Input.is_key_pressed(KEY_A))
 		move_input.y = float(Input.is_key_pressed(KEY_W)) - float(Input.is_key_pressed(KEY_S))
 		move_input = move_input.normalized()
 		touch_fire = Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
 		touch_jump = Input.is_key_pressed(KEY_SPACE)
+		if Input.is_key_pressed(KEY_R):
+			_start_reload()
 
 	var yaw_basis := Basis(Vector3.UP, _camera_pivot.rotation.y)
 	var move_direction := (yaw_basis * Vector3(move_input.x, 0.0, -move_input.y)).normalized()
@@ -77,9 +90,18 @@ func _physics_process(delta: float) -> void:
 		velocity.y = jump_velocity
 
 	move_and_slide()
-	if touch_fire and _fire_cooldown <= 0.0:
-		_fire_cooldown = fire_interval
-		_fire_hitscan()
+	if touch_fire and _fire_cooldown <= 0.0 and _reload_timer <= 0.0:
+		if ammo > 0:
+			_fire_cooldown = fire_interval
+			ammo -= 1
+			_fire_hitscan()
+		elif reserve_ammo > 0:
+			_start_reload()
+
+func _start_reload() -> void:
+	if _reload_timer > 0.0 or ammo >= magazine_size or reserve_ammo <= 0:
+		return
+	_reload_timer = 1.35
 
 func _fire_hitscan() -> void:
 	if _camera == null:
