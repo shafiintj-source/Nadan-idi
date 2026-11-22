@@ -40,6 +40,9 @@ func _recalculate_layout() -> void:
 	_jump_center = Vector2(w - 225.0, h - 95.0)
 	_reload_center = Vector2(w - 325.0, h - 95.0)
 
+func _process(_delta: float) -> void:
+	queue_redraw()
+
 func get_move_vector() -> Vector2:
 	return _move_vector
 
@@ -114,6 +117,15 @@ func _update_move(pos: Vector2) -> void:
 func _draw() -> void:
 	if _viewport_size == Vector2.ZERO:
 		return
+	var player := get_tree().get_first_node_in_group("player")
+	if player != null:
+		var stats := "HP %d     AMMO %d / %d" % [player.health, player.ammo, player.reserve_ammo]
+		draw_string(ThemeDB.fallback_font, Vector2(28, 42), stats, HORIZONTAL_ALIGNMENT_LEFT, -1, 22, Color(0.95, 0.93, 0.82, 0.95))
+	var center := _viewport_size * 0.5
+	draw_line(center + Vector2(-9, 0), center + Vector2(-3, 0), Color.WHITE, 2.0)
+	draw_line(center + Vector2(3, 0), center + Vector2(9, 0), Color.WHITE, 2.0)
+	draw_line(center + Vector2(0, -9), center + Vector2(0, -3), Color.WHITE, 2.0)
+	draw_line(center + Vector2(0, 3), center + Vector2(0, 9), Color.WHITE, 2.0)
 	draw_circle(_joy_center, _joy_radius, Color(0.03, 0.08, 0.09, 0.30))
 	draw_arc(_joy_center, _joy_radius, 0.0, TAU, 48, Color(0.75, 0.86, 0.82, 0.55), 3.0)
 	draw_circle(_joy_center + Vector2(_move_vector.x, -_move_vector.y) * _joy_radius, 28.0, Color(0.85, 0.92, 0.88, 0.68))
