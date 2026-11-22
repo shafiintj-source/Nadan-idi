@@ -23,8 +23,9 @@
 - [ ] Test on at least one real Android phone; tune for low/mid-range devices.
 
 ## Phase 3 — Kerala identity
-- [ ] Main menu, lobby, profile and settings.
-- [ ] English default; Malayalam language pack and toggle.
+- [x] Add simple main menu with English default and English/Malayalam toggle source.
+- [ ] Full lobby, profile and settings screens.
+- [ ] Expand localization into reusable language resources and test Malayalam font rendering.
 - [ ] Original character model, rig and animations.
 - [ ] First fictional Kerala hill-village arena with full collision.
 - [ ] Sound, UI feedback and accessibility settings.
