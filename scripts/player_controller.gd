@@ -23,6 +23,7 @@ var _camera_pivot: Node3D
 var _camera: Camera3D
 
 func _ready() -> void:
+	add_to_group("player")
 	health = max_health
 	_camera_pivot = $CameraPivot
 	_camera = $CameraPivot/SpringArm3D/Camera3D
