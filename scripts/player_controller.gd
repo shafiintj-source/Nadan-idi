@@ -41,6 +41,8 @@ func _rotate_camera(delta: Vector2) -> void:
 	_camera_pivot.rotation.x = clamp(_camera_pivot.rotation.x, -limit, limit)
 
 func _physics_process(delta: float) -> void:
+	if _mobile_controls == null:
+		_mobile_controls = get_tree().get_first_node_in_group("mobile_controls")
 	_fire_cooldown = maxf(0.0, _fire_cooldown - delta)
 	if not is_on_floor():
 		velocity.y -= gravity * delta
