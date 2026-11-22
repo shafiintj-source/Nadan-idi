@@ -1,37 +1,43 @@
-# Client project status and handoff
+# Naadan Adi 3D — Client project status
 
-## Repository audit (2026-11-22)
-The default branch currently contains server/deployment material and release notes, including:
-- server/main.gd
-- scripts/match.gd
-- scripts/wire.gd
-- deployment/server-project.godot
-- Dockerfile and render.yaml
-- release checklist, store listing draft, package ID and data-safety review worksheet
+## Repository audit
+The legacy `main` branch contains the earlier multiplayer-server/deployment subset and release planning files. It did not contain a complete playable game client.
 
-The repository listing does **not** currently show a complete Godot client project. In particular, no root client project.godot, client scenes, player/controller scripts, map scenes, imported art/audio assets, or Android export preset were present in the inspected root tree.
+## Fresh branch created
+Branch: `fresh-3d-foundation`
 
-## Consequence
-The server subset is not sufficient to reconstruct the existing playable game or produce a trustworthy updated APK/AAB. Do not claim that a client build, control fix, map integration, or device test is complete until the full client project is restored and tested.
+Added a starter Godot 4 project structure:
+- `project.godot` — mobile renderer configuration and main scene.
+- `scenes/prototype_arena.tscn` — greybox floor, lighting, environment and player spawn.
+- `scenes/player.tscn` — CharacterBody3D placeholder capsule, camera pivot and spring arm.
+- `scripts/player_controller.gd` — preliminary keyboard movement, jump and mouse-look for editor prototype.
+- `docs/ARCHITECTURE.md` — accepted 3D architecture and game direction.
+- `docs/BUILD_PLAN.md` — staged build and release gates.
+- `.gitignore` — excludes Godot cache, builds, signing keys and export presets.
 
-## Required source to resume
-Restore the complete Godot client project, including:
-- project.godot and all referenced .tscn/.tres/.gd files
-- player, weapon, movement, aim, jetpack and UI scenes/scripts
-- map scenes, collision geometry, sprites, fonts, sound and animation assets
-- project settings and input map
-- export_presets.cfg with secrets removed (do not share .godot/export_credentials.cfg or signing keys)
+## Decisions
+- 3D third-person arena shooter.
+- English default, Malayalam optional.
+- Android-first.
+- 2–6 players planned.
+- First milestone is one offline greybox arena and responsive controls.
 
-If the original ZIP cannot be uploaded in chat, use GitHub's web interface to add the complete project folders, or transfer the ZIP to a computer and push it to this repository. Do not upload signing keystores, passwords, API secrets, or private credentials.
+## Not yet verified / not yet implemented
+- The new scaffold has **not** been opened or run in the Godot editor; GDScript and scene files require validation.
+- No Android touch UI yet. Current controller is keyboard/mouse only for an editor prototype.
+- No final character model, animations, weapons, map art, UI screens, audio, bots or gameplay loop.
+- No 3D multiplayer client protocol or integration.
+- No APK/AAB, signing setup or Android device test.
 
-## Next implementation order
-1. Restore and open the complete client in the exact Godot version used by the project.
-2. Run the project and record baseline errors.
-3. Fix mobile movement/aim/fire/jetpack/reload controls.
-4. Implement and test the Kerala-themed UI and first map.
-5. Connect the client to the existing room server and test 2–6 clients.
-6. Build debug APK for device testing; fix issues; then build signed release AAB.
-7. Complete store assets and Data Safety only after actual SDK/data inventory.
+## Next required work
+1. Open this branch in Godot 4.x and fix any parser/scene errors.
+2. Confirm exact Godot version and Android export template.
+3. Add camera-relative movement polish, acceleration, jump and collision test.
+4. Build mobile virtual joystick, camera drag, fire, jump and reload controls.
+5. Add target dummy and one test weapon.
+6. Create first original Kerala-inspired arena art after greybox gameplay works.
+7. Design and verify the 3D client/server protocol before enabling online play.
+8. Perform real Android device and multi-client tests before release claims.
 
-## Honest completion rule
-A feature is complete only when implemented in source and verified. A design document or server deployment is not proof of a playable Android client.
+## Security
+Never commit keystores, passwords, export credentials, API tokens or private signing material.
