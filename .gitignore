@@ -1,0 +1,10 @@
+.godot/
+.export/
+build/
+dist/
+*.apk
+*.aab
+*.keystore
+*.jks
+export_presets.cfg
+.env
