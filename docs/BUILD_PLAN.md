@@ -1,48 +1,53 @@
-# Naadan Adi 3D — Build Plan
+# Naadan Adi HD — 2026 Build Plan
 
-## Phase 0 — Foundation
+## Phase 0 — Project identity and foundation
 - [x] Create isolated fresh-development branch.
-- [x] Record 3D / English-default / Malayalam-option decisions.
-- [ ] Open and validate the project in Godot 4.x (Godot executable is not available in this workspace).
-- [ ] Pin exact Godot version and Android export template version.
+- [x] Create 2026 upgrade brief.
+- [x] Replace Malayalam-heavy prototype entry labels with compact English-first menu source.
+- [ ] Identify the installed Android APK package/version and confirm whether its source matches this repository.
+- [ ] Import and validate project in Godot 4.x; pin engine and export-template versions.
 
-## Phase 1 — Playable offline prototype
-- [x] Add preliminary third-person CharacterBody3D movement, gravity and jump source.
-- [x] Add follow camera, mouse look and touch-drag camera source.
-- [x] Add greybox arena floor, collision, player spawn and primitive Kerala-inspired dressing.
-- [x] Add damageable target dummy and prototype hitscan test weapon source.
-- [x] Add prototype health/ammunition display, magazine and reload timing source.
-- [ ] Run and validate all scenes/scripts in Godot 4.x.
+## Phase 1 — Offline playable vertical slice
+- [x] Add preliminary third-person movement, gravity and jump source.
+- [x] Add follow camera and mouse/touch look source.
+- [x] Add greybox arena, collision, player spawn and placeholder Kerala dressing.
+- [x] Add target dummy and prototype hitscan weapon source.
+- [x] Add basic health/ammo HUD and reload timing source.
+- [ ] Parse/run all scenes and scripts in Godot; resolve all runtime errors.
+- [ ] Tune simultaneous movement, aim, fire, jump and reload on Android.
+- [ ] Add sprint, hit feedback, sound and a complete training loop.
 
-## Phase 2 — Android controls
-- [x] Add source for left virtual movement stick.
-- [x] Add source for right-side camera drag / aim region.
-- [x] Add source for fire, jump and reload buttons (sprint not yet implemented).
-- [ ] Simultaneous movement + camera + fire + jump.
-- [ ] Sensitivity, dead-zone and control layout settings.
-- [ ] Test on at least one real Android phone; tune for low/mid-range devices.
+## Phase 2 — UI and customization
+- [x] Compact English-first entry menu source.
+- [ ] Stable modern lobby and reproduce/fix startup issue on actual target build.
+- [ ] Functional weapon loadout, attachments, skins and upgrades.
+- [ ] Functional character customization: outfit, helmet and backpack.
+- [ ] Map/mode selection with preview cards.
+- [ ] Settings: graphics, audio, sensitivity, control layout and accessibility.
+- [ ] Short optional voice commands with explicit microphone permission and touch alternatives.
 
-## Phase 3 — Kerala identity
-- [x] Add simple main menu with English default and English/Malayalam toggle source.
-- [ ] Full lobby, profile and settings screens.
-- [ ] Expand localization into reusable language resources and test Malayalam font rendering.
-- [ ] Original character model, rig and animations.
-- [ ] First fictional Kerala hill-village arena with full collision.
-- [ ] Sound, UI feedback and accessibility settings.
+## Phase 3 — Kerala maps and gameplay
+- [ ] First polished fictional Munnar-inspired map with cover, routes, verticality and landmarks.
+- [ ] Fort Kochi-inspired harbour map.
+- [ ] Backwater village map.
+- [ ] Western Ghats forest / hill-road map.
+- [ ] Original optimized characters, rigs, animations, weapons, VFX and sound.
+- [ ] Bots, match timer, health, ammo, scoring and results.
+- [ ] Low/mid/high Android graphics presets and performance profiling.
 
 ## Phase 4 — Multiplayer
-- [ ] Define and document a new 3D client/server protocol.
-- [ ] Verify server compatibility; adapt or replace old server code as needed.
+- [ ] Define a new 3D client/server protocol.
+- [ ] Audit and adapt or replace legacy server; do not assume 2D protocol compatibility.
 - [ ] Private rooms for 2–6 players.
-- [ ] Server-authoritative damage, kills, scores and match lifecycle.
+- [ ] Server-authoritative movement validation, damage, kills, score and match lifecycle.
 - [ ] Reconnect, timeout, latency and multi-client tests.
 
-## Phase 5 — Release
-- [ ] Crash/performance test on supported Android devices.
-- [ ] Privacy policy and Data Safety based on actual SDK/data inventory.
-- [ ] Store icon, screenshots, feature graphic and listing.
-- [ ] Secure signing keystore and build signed AAB.
-- [ ] Internal testing track, fix feedback, then production submission.
+## Phase 5 — Android release
+- [ ] Debug APK export and installation test.
+- [ ] Crash, thermal, memory and frame-rate tests on supported Android phones.
+- [ ] Signed release APK/AAB using securely stored signing material.
+- [ ] Store icon, screenshots, feature graphic, privacy policy and Data Safety review.
+- [ ] Upload a verified build to Drive and confirm its download link.
 
 ## Current honest status
-The branch contains architecture and build-plan documents only at this stage. No verified playable client, APK/AAB, Android device test or completed 3D art is claimed.
+Source and planning documents are committed, and the entry-menu source has been simplified. The project has not been run in Godot. There is no verified playable build, fixed installed APK, production-quality map, multiplayer release or APK/AAB yet.
