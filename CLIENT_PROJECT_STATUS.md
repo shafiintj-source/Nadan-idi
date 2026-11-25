@@ -1,48 +1,45 @@
-# Naadan Adi 3D — Client project status
+# Naadan Adi HD — Client project status
 
 ## Fresh development branch
-Branch: `fresh-3d-foundation`
+Branch: fresh-3d-foundation
+Repository: https://github.com/shafiintj-source/Nadan-idi/tree/fresh-3d-foundation
 
-## Source files added
-- `project.godot` — Godot 4 mobile renderer configuration and prototype main scene.
-- `scenes/prototype_arena.tscn` — greybox floor, light, environment, player, target and touch HUD.
-- `scenes/player.tscn` — CharacterBody3D capsule placeholder, camera pivot and spring arm.
-- `scenes/target_dummy.tscn` — damageable target for aim testing.
-- `scripts/player_controller.gd` — preliminary camera-relative movement, jump, mouse/touch camera, hitscan, health, ammo and reload timing.
-- `scripts/mobile_controls.gd` — source for left virtual joystick, right-side look drag, fire/jump/reload touch buttons and basic HP/ammo HUD.
-- `scripts/kerala_arena_dressing.gd` — procedural primitive placeholders inspired by Kerala village buildings, palms and green hills.
-- `docs/ARCHITECTURE.md` and `docs/BUILD_PLAN.md` — architecture and staged completion criteria.
-- `.gitignore` — excludes generated builds, Godot cache and private signing credentials.
+## Latest changes
+- Added docs/UPGRADE_BRIEF_2026.md describing the requested 2026 upgrade direction: English-first UI, short optional voice commands, loadout/customization, large fictional Kerala maps, bots, 2–6 player multiplayer and release gates.
+- Reworked scripts/main_menu.gd to remove Malayalam-heavy menu labels and use a compact English-first NAADAN ADI HD entry screen with PLAY and EXIT.
+- Added a scene-change error log if the prototype arena cannot be opened.
 
-## Decisions
-- 3D third-person arena shooter.
-- English default; Malayalam option planned.
-- Android-first.
-- 2–6 player online rooms planned.
-- First milestone: offline playable prototype.
+## Existing prototype source
+- Godot 4 project configuration and landscape-first mobile renderer settings.
+- Prototype greybox arena, capsule player, target dummy and procedural placeholder Kerala village dressing.
+- Preliminary third-person movement, camera, hitscan, health, ammo and reload source.
+- Preliminary touch joystick, camera drag, fire, jump and reload HUD source.
+
+## Important distinction
+The APK already installed on the user's Android phone has not been identified as this repository build. The user reported an opening-screen bug, but the exact APK/package/version and matching source project are not yet available. The fresh Godot branch is a separate prototype foundation and must not be described as a repaired version of the installed APK.
 
 ## Verification status
-**Source has been committed, but not executed.** No Godot executable is installed in the current coding workspace, so the project has not been imported, parsed or run in the Godot editor. Scene/script compatibility is therefore not yet verified.
+**Not runtime-verified.** Godot is not installed in the current coding workspace. The project has not been imported, parsed or run in Godot. No APK/AAB has been built, no Android device test has been completed, and no Drive upload exists.
 
 ## Not yet implemented or verified
-- Final character model, rig and animations.
-- Polished production-quality Kerala map art and level design.
-- Weapon models, muzzle effects, sound and full combat feedback.
-- Bots, match rules, scoring, lobby, profile, language selector and settings UI.
-- 3D multiplayer protocol/client integration. The legacy server is not assumed compatible.
-- Android APK/AAB, export templates, signing and real-device tests.
-- Play Store release assets and final Data Safety answers.
+- Polished 3D character models, rigging, animations and weapon models.
+- Functional loadout, attachments, skins, character customization and settings screens.
+- Large production-quality Kerala maps; current environment is only primitive placeholder dressing.
+- Voice recognition; proposed short commands are Fire, Reload, Jump, Follow and Help. Microphone permission and touch alternatives must be implemented.
+- Bots, match lifecycle, scoring and results.
+- 2–6 player 3D networking; old server is not verified compatible.
+- Startup issue on the installed APK; requires reproduction on the matching build.
+- Android APK/AAB export, signing, performance testing and Play Store assets.
 
-## Required next actions
-1. Open this branch in Godot 4.x; fix parser/scene errors.
-2. Verify project orientation and Android export settings.
-3. Test movement, camera, collision, touch controls and aim on a real Android device.
-4. Add a language selector and English/Malayalam text resources.
-5. Replace primitive environment placeholders with optimized original 3D assets.
-6. Implement weapon handling, bots, match loop and results.
-7. Design and test a 3D client/server protocol for 2–6 players.
-8. Perform performance, crash and multi-client tests.
-9. Build debug APK, then signed release AAB using securely stored signing material.
+## Required delivery sequence
+1. Identify installed APK package name/version and locate matching source if repairing that exact app.
+2. Open and validate the fresh Godot branch in Godot 4.x; fix parse/scene errors.
+3. Complete one polished offline vertical slice and test touch controls on a real Android phone.
+4. Add functional loadout, character, settings and map selection.
+5. Build the first optimized Kerala map and basic bots/match loop.
+6. Implement and load-test server-authoritative 2–6 player multiplayer.
+7. Build and test a debug APK, then create signed release APK/AAB.
+8. Upload only a real verified build to Drive and share its working link.
 
 ## Security
 Never commit keystores, passwords, export credentials, API tokens or private signing material.
