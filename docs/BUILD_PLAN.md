@@ -20,7 +20,8 @@
 ## Phase 2 — UI and customization
 - [x] Compact English-first entry menu source.
 - [ ] Stable modern lobby and reproduce/fix startup issue on actual target build.
-- [ ] Functional weapon loadout, attachments, skins and upgrades.
+- [x] Add visual-card prototype screen for weapons, skins, character and maps; add LOADOUT entry.
+- [ ] Connect selected loadout to persistent inventory, actual weapon/skin assets, attachments and upgrades.
 - [ ] Functional character customization: outfit, helmet and backpack.
 - [ ] Map/mode selection with preview cards.
 - [ ] Settings: graphics, audio, sensitivity, control layout and accessibility.
