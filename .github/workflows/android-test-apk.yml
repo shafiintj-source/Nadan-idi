@@ -1,0 +1,56 @@
+name: Build Naadan Adi Android Test APK
+
+on:
+  push:
+    branches:
+      - test-apk-2026-11-25
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  android-test-apk:
+    name: Export Android debug APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout test branch
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          api-level: 35
+          build-tools: 35.0.0
+
+      - name: Export Godot Android debug APK
+        uses: firebelley/godot-export@v8.0.0
+        with:
+          godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
+          godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz
+          relative_project_path: ./
+          export_debug: true
+          presets_to_export: Android
+          use_preset_export_path: true
+          cache: true
+          verbose: true
+
+      - name: Verify APK exists
+        run: |
+          test -s build/NaadanAdi-Test.apk
+          ls -lh build/NaadanAdi-Test.apk
+
+      - name: Upload test APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: NaadanAdi-Test-APK
+          path: build/NaadanAdi-Test.apk
+          if-no-files-found: error
+          retention-days: 14
