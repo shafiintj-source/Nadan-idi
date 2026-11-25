@@ -5,8 +5,10 @@ Branch: fresh-3d-foundation
 Repository: https://github.com/shafiintj-source/Nadan-idi/tree/fresh-3d-foundation
 
 ## Latest changes
-- Added docs/UPGRADE_BRIEF_2026.md describing the requested 2026 upgrade direction: English-first UI, short optional voice commands, loadout/customization, large fictional Kerala maps, bots, 2–6 player multiplayer and release gates.
+- Added docs/UPGRADE_BRIEF_2026.md and docs/TOUCH_MAP_CUSTOMIZATION_UX.md for the 2026 upgrade direction, visual-card loadout selection, touch layout and map design.
 - Reworked scripts/main_menu.gd to remove Malayalam-heavy menu labels and use a compact English-first NAADAN ADI HD entry screen with PLAY and EXIT.
+- Expanded the greybox arena floor from 40 x 40 to 120 x 120 world units; moved the player spawn and training target farther apart.
+- Added perimeter collision walls, four house-like structures, cover lanes, palm silhouettes and distant green hills to support multiple routes and more controlled fights.
 - Added a scene-change error log if the prototype arena cannot be opened.
 
 ## Existing prototype source
@@ -23,6 +25,7 @@ The APK already installed on the user's Android phone has not been identified as
 
 ## Not yet implemented or verified
 - Polished 3D character models, rigging, animations and weapon models.
+- Final visual-card loadout, skin and map selection screens; the UX is specified but not yet implemented.
 - Functional loadout, attachments, skins, character customization and settings screens.
 - Large production-quality Kerala maps; current environment is only primitive placeholder dressing.
 - Voice recognition; proposed short commands are Fire, Reload, Jump, Follow and Help. Microphone permission and touch alternatives must be implemented.
