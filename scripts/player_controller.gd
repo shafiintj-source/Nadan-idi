@@ -68,7 +68,8 @@ func _physics_process(delta: float) -> void:
 	var touch_fire := false
 	var touch_jump := false
 	var touch_sprint := false
-	if _mobile_controls != null:
+	var use_touch_controls := OS.has_feature("android") or OS.has_feature("ios")
+	if use_touch_controls and _mobile_controls != null:
 		move_input = _mobile_controls.get_move_vector()
 		var look_delta: Vector2 = _mobile_controls.consume_look_delta()
 		if look_delta != Vector2.ZERO:
