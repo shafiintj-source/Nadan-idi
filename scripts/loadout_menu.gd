@@ -108,7 +108,6 @@ func _show_category(category: String) -> void:
 		card.custom_minimum_size = Vector2(250, 112)
 		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		card.text = entry["name"] + "\n" + entry["detail"]
-		card.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		card.pressed.connect(_on_card_selected.bind(entry["name"]))
 		_cards.add_child(card)
 	_selected = entries[0]["name"]
