@@ -6,10 +6,10 @@
 [ext_resource type="Script" path="res://scripts/kerala_arena_dressing.gd" id="4_dressing"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
-size = Vector3(40, 1, 40)
+size = Vector3(120, 1, 120)
 
 [sub_resource type="BoxMesh" id="BoxMesh_floor"]
-size = Vector3(40, 1, 40)
+size = Vector3(120, 1, 120)
 
 [sub_resource type="Environment" id="Environment_arena"]
 background_mode = 1
@@ -38,10 +38,10 @@ shape = SubResource("BoxShape3D_floor")
 mesh = SubResource("BoxMesh_floor")
 
 [node name="Player" parent="." instance=ExtResource("1_player")]
-position = Vector3(0, 0, 5)
+position = Vector3(0, 0, 43)
 
 [node name="TargetDummy" parent="." instance=ExtResource("2_target")]
-position = Vector3(0, 0, -8)
+position = Vector3(0, 0, -25)
 
 [node name="MobileControls" type="Control" parent="."]
 anchors_preset = 15
