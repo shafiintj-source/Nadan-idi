@@ -8,6 +8,9 @@ Repository: https://github.com/shafiintj-source/Nadan-idi/tree/fresh-3d-foundati
 - Added docs/UPGRADE_BRIEF_2026.md and docs/TOUCH_MAP_CUSTOMIZATION_UX.md for the 2026 upgrade direction, visual-card loadout selection, touch layout and map design.
 - Reworked scripts/main_menu.gd to remove Malayalam-heavy menu labels and use a compact English-first NAADAN ADI HD entry screen with PLAY and EXIT.
 - Expanded the greybox arena floor from 40 x 40 to 120 x 120 world units; moved the player spawn and training target farther apart.
+- Added touch RUN and SWAP controls; added sprint speed and prototype Assault Rifle / SMG switching to the player controller.
+- Added a LOADOUT entry to the main menu and a card-based Weapons / Skins / Character / Maps selection screen. Current selections are prototype UI state only; persistent inventory and actual character/weapon assets are not wired yet.
+- Kept keyboard/mouse controls active for desktop editor runs; touch controls are selected on Android/iOS.
 - Added perimeter collision walls, four house-like structures, cover lanes, palm silhouettes and distant green hills to support multiple routes and more controlled fights.
 - Added a scene-change error log if the prototype arena cannot be opened.
 
@@ -25,7 +28,7 @@ The APK already installed on the user's Android phone has not been identified as
 
 ## Not yet implemented or verified
 - Polished 3D character models, rigging, animations and weapon models.
-- Final visual-card loadout, skin and map selection screens; the UX is specified but not yet implemented.
+- Persistent inventory/loadout save data, actual weapon/skin assets and functional in-match equip application.
 - Functional loadout, attachments, skins, character customization and settings screens.
 - Large production-quality Kerala maps; current environment is only primitive placeholder dressing.
 - Voice recognition; proposed short commands are Fire, Reload, Jump, Follow and Help. Microphone permission and touch alternatives must be implemented.
